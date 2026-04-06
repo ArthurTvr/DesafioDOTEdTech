@@ -14,4 +14,22 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-console.log("JS carregou");
+const cards = document.querySelectorAll(".card");
+
+cards.forEach((card) => {
+  const buttons = card.querySelectorAll(".btn");
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const isActive = card.classList.contains("active");
+
+      // fecha todos
+      cards.forEach(c => c.classList.remove("active"));
+
+      // se não estava ativo, abre
+      if (!isActive) {
+        card.classList.add("active");
+      }
+    });
+  });
+});
