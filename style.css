@@ -216,8 +216,8 @@ body {
   width: 100%;
   position: relative;
 }
-.swiper-button-next{
-  background: #0C0A08 !important;
+.swiper-button-next {
+  background: #0c0a08 !important;
   color: #ffffff !important;
 }
 .swiper-button-prev {
@@ -248,7 +248,7 @@ body {
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-  background: #76B900 !important;
+  background: #76b900 !important;
   color: #fff !important;
   /* transform: scale(1.05); */
 }
@@ -287,7 +287,7 @@ body {
   margin: 40px 0;
   width: 40%;
   max-width: 1024px;
-  background-color: #0C0A08;
+  background-color: #0c0a08;
   color: #fff;
   padding: 40px;
   position: relative;
@@ -314,13 +314,13 @@ body {
   border-radius: 12px;
   background: #f1f1f1;
   display: flex;
-  align-items: stretch; 
+  align-items: stretch;
   justify-content: center;
   transition: all 0.3s ease;
 }
 
 .card.active {
-  background: #0C0A08;
+  background: #0c0a08;
   color: #fff;
 }
 
@@ -337,8 +337,8 @@ body {
   font-size: 40px;
   font-weight: bold;
 }
-.icon, 
-.card-open p{
+.icon,
+.card-open p {
   flex: 1;
   display: flex;
   align-items: center;
@@ -347,6 +347,7 @@ body {
 }
 
 .btn {
+  color: #0c0a08;
   padding: 8px 24px;
   border: 1px solid #ccc;
   background: transparent;
@@ -357,14 +358,13 @@ body {
   align-self: center;
 }
 
-
 .card.active .btn {
   border-color: #555;
   color: #fff;
 }
 
 .btn:hover {
-  background: #0C0A08;
+  background: #0c0a08;
   color: #fff;
 }
 
@@ -373,7 +373,7 @@ body {
 }
 
 .card.active .card-open {
-  display: flex; 
+  display: flex;
 }
 
 .card.active .card-closed {
@@ -390,7 +390,6 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
-
 
 .audio-section {
   max-width: 1024px;
@@ -568,12 +567,6 @@ body {
   opacity: 0.75;
 }
 
-
-
-
-
-
-
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
@@ -623,7 +616,7 @@ body {
     align-items: center;
   }
 
-   .audio-player {
+  .audio-player {
     gap: 8px;
     padding: 12px 10px;
   }
@@ -636,7 +629,7 @@ body {
   .progress-container {
     min-width: 110px;
   }
-.progress-thumb {
+  .progress-thumb {
     width: 26px;
     max-width: 26px;
   }
