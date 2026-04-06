@@ -34,7 +34,11 @@ body {
   width: 100%;
   background:
     radial-gradient(circle at 30% 30%, rgba(118, 185, 0, 0.2), transparent 40%),
-    radial-gradient(circle at 70% 70%, rgba(118, 185, 0, 0.15), transparent 40%),
+    radial-gradient(
+      circle at 70% 70%,
+      rgba(118, 185, 0, 0.15),
+      transparent 40%
+    ),
     #0c0a08;
   overflow: hidden;
   display: flex;
@@ -70,7 +74,6 @@ body {
   color: #76b900;
 }
 
-
 .hero-image {
   position: relative;
   width: 100%;
@@ -93,7 +96,6 @@ body {
 .cta-button:hover {
   opacity: 0.8;
 }
-
 
 .description {
   margin-top: 20px;
@@ -164,7 +166,7 @@ body {
   width: 100%;
   max-width: 1024px;
   gap: 20px;
-  height: auto; 
+  height: auto;
 }
 #card-texts {
   font-size: 16px;
@@ -183,6 +185,95 @@ body {
   border-radius: 8px;
 }
 
+
+
+
+.slider-section {
+  max-width: 1024px;
+  margin: 80px auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+.swiper {
+  width: 100%;
+}
+
+.swiper-slide img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.slider-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 30px;
+  width: 100%;
+  position: relative;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  position: static !important;
+  text-align: center;
+  display: flex !important;
+  align-items: center;
+  justify-content: center ;
+
+  width: 40px !important;
+  height: 40px !important;
+
+  border: 1px solid #979797;
+  border-radius: 6px;
+  background: #fff;
+
+  color: #171d0c !important;
+
+  transition: all 0.25s ease;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 12px !important;
+  line-height: 1 !important;
+  font-weight: bold;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: #171d0c;
+  color: #fff !important;
+  transform: scale(1.05);
+}
+
+.swiper-button-disabled {
+  opacity: 0.3 !important;
+  cursor: not-allowed;
+}
+
+.swiper-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+}
+
+.swiper-pagination-bullet {
+  width: 6px;
+  height: 6px;
+  background: #ccc;
+  opacity: 1;
+  margin: 0 !important;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background: #171d0c !important;
+  transform: scale(1.2);
+}
 
 @media (max-width: 768px) {
   .hero {
