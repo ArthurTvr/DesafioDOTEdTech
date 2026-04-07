@@ -63,8 +63,8 @@ function formatTime(seconds) {
 
 function updatePlayIcon() {
   playIcon.src = audio.paused
-    ? "./assets/images/play.svg"
-    : "./assets/images/pause.svg";
+    ? "./assets/images/audio/play.svg"
+    : "./assets/images/audio/pause.svg";
 }
 
 function updateProgress() {
@@ -109,8 +109,8 @@ function updateVolumeUI() {
 
   volumeIcon.src =
     volumePercent === 0
-      ? "./assets/images/volume-mute.svg"
-      : "./assets/images/volume.svg";
+      ? "./assets/images/audio/volume-mute.svg"
+      : "./assets/images/audio/volume.svg";
 }
 
 function setVolumeByClick(event) {
@@ -245,7 +245,7 @@ const textareaDiscursiva = document.getElementById("textarea-discursiva");
 const btnResponder = document.getElementById("btnResponder");
 const btnAlterar = document.getElementById("btnAlterar");
 const feedbackDiscursiva = document.getElementById("feedbackDiscursiva");
-const fecharFeedback = document.getElementById("fecharFeedback");
+const fecharFeedback = document.getElementById("fecharFeedbackDiscursiva");
 
 const STORAGE_KEY = "atividadeDiscursiva";
 
@@ -365,3 +365,189 @@ restaurarEstadoDiscursiva();
 if (!textareaDiscursiva.disabled) {
   atualizarBotoesIniciais();
 }
+
+
+
+//OBJETIVA
+
+const opcoesObjetiva = document.querySelectorAll('.opcao-objetiva input[type="checkbox"]');
+const btnResponderObjetiva = document.getElementById("btnResponderObjetiva");
+const btnAlterarObjetiva = document.getElementById("btnAlterarObjetiva");
+const feedbackObjetiva = document.getElementById("feedbackObjetiva");
+const fecharFeedbackObjetiva = document.getElementById("fecharFeedbackObjetiva");
+
+const STORAGE_KEY_OBJETIVA = "atividadeObjetiva";
+
+function atualizarVisualObjetiva() {
+  opcoesObjetiva.forEach((input) => {
+    const opcao = input.closest(".opcao-objetiva");
+    opcao.classList.toggle("selecionada", input.checked);
+  });
+}
+
+function salvarEstadoObjetiva() {
+  const estado = {
+    selecionados: [...opcoesObjetiva].filter((input) => input.checked).map((input) => input.id),
+    respondido: btnResponderObjetiva.disabled && !btnAlterarObjetiva.disabled,
+    feedbackVisivel: feedbackObjetiva.classList.contains("ativo"),
+    bloqueada: opcoesObjetiva[0].disabled,
+  };
+
+  sessionStorage.setItem(STORAGE_KEY_OBJETIVA, JSON.stringify(estado));
+}
+
+function atualizarBotoesObjetiva() {
+  const temSelecionado = [...opcoesObjetiva].some((input) => input.checked);
+
+  if (!opcoesObjetiva[0].disabled) {
+    btnResponderObjetiva.disabled = !temSelecionado;
+
+    if (temSelecionado) {
+      btnResponderObjetiva.classList.add("ativo");
+    } else {
+      btnResponderObjetiva.classList.remove("ativo");
+    }
+
+    btnAlterarObjetiva.disabled = true;
+  }
+}
+
+function responderObjetiva() {
+  const temSelecionado = [...opcoesObjetiva].some((input) => input.checked);
+  if (!temSelecionado) return;
+
+  feedbackObjetiva.classList.add("ativo");
+
+  btnResponderObjetiva.disabled = true;
+  btnResponderObjetiva.classList.remove("ativo");
+
+  btnAlterarObjetiva.disabled = false;
+
+  opcoesObjetiva.forEach((input) => {
+    input.disabled = true;
+  });
+
+  salvarEstadoObjetiva();
+}
+
+function alterarObjetiva() {
+  feedbackObjetiva.classList.remove("ativo");
+
+  btnAlterarObjetiva.disabled = true;
+
+  opcoesObjetiva.forEach((input) => {
+    input.disabled = false;
+  });
+
+  const temSelecionado = [...opcoesObjetiva].some((input) => input.checked);
+  btnResponderObjetiva.disabled = !temSelecionado;
+
+  if (temSelecionado) {
+    btnResponderObjetiva.classList.add("ativo");
+  } else {
+    btnResponderObjetiva.classList.remove("ativo");
+  }
+
+  salvarEstadoObjetiva();
+}
+
+function restaurarEstadoObjetiva() {
+  const salvo = sessionStorage.getItem(STORAGE_KEY_OBJETIVA);
+
+  if (!salvo) {
+    btnResponderObjetiva.disabled = true;
+    btnAlterarObjetiva.disabled = true;
+    btnResponderObjetiva.classList.remove("ativo");
+    return;
+  }
+
+  const estado = JSON.parse(salvo);
+
+  opcoesObjetiva.forEach((input) => {
+    input.checked = estado.selecionados.includes(input.id);
+    input.disabled = !!estado.bloqueada;
+  });
+
+  atualizarVisualObjetiva();
+
+  if (estado.bloqueada) {
+    btnResponderObjetiva.disabled = true;
+    btnResponderObjetiva.classList.remove("ativo");
+    btnAlterarObjetiva.disabled = false;
+  } else {
+    const temSelecionado = [...opcoesObjetiva].some((input) => input.checked);
+    btnResponderObjetiva.disabled = !temSelecionado;
+    btnAlterarObjetiva.disabled = true;
+
+    if (temSelecionado) {
+      btnResponderObjetiva.classList.add("ativo");
+    } else {
+      btnResponderObjetiva.classList.remove("ativo");
+    }
+  }
+
+  if (estado.feedbackVisivel) {
+    feedbackObjetiva.classList.add("ativo");
+  } else {
+    feedbackObjetiva.classList.remove("ativo");
+  }
+}
+
+opcoesObjetiva.forEach((input) => {
+  input.addEventListener("change", () => {
+    if (input.checked) {
+      opcoesObjetiva.forEach((outroInput) => {
+        if (outroInput !== input) {
+          outroInput.checked = false;
+        }
+      });
+    }
+
+    atualizarVisualObjetiva();
+    atualizarBotoesObjetiva();
+    salvarEstadoObjetiva();
+  });
+});
+
+btnResponderObjetiva.addEventListener("click", responderObjetiva);
+btnAlterarObjetiva.addEventListener("click", alterarObjetiva);
+
+fecharFeedbackObjetiva.addEventListener("click", () => {
+  feedbackObjetiva.classList.remove("ativo");
+  salvarEstadoObjetiva();
+});
+
+restaurarEstadoObjetiva();
+
+if (!opcoesObjetiva[0].disabled) {
+  atualizarBotoesObjetiva();
+}
+
+
+
+const faqItems = document.querySelectorAll(".faq-item");
+
+function atualizarSetasFaq() {
+  faqItems.forEach((item) => {
+    const arrow = item.querySelector(".faq-arrow");
+
+    if (item.open) {
+      arrow.src = "./assets/images/faq/arrow-up-white.svg";
+    } else {
+      arrow.src = "./assets/images/faq/arrow-down-green.svg";
+    }
+  });
+}
+faqItems.forEach((item) => {
+  item.addEventListener("toggle", () => {
+    if (item.open) {
+      faqItems.forEach((otherItem) => {
+        if (otherItem !== item) {
+          otherItem.open = false;
+        }
+      });
+    }
+  });
+});
+
+atualizarSetasFaq();

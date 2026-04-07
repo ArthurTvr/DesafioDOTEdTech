@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EdTech</title>
+    <title>DOT. Desafio EdTech</title>
 
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -97,13 +97,13 @@
         <div class="swiper mySwiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img src="./assets/images/img1.jpg" />
+              <img src="./assets/images/swiper/img1.jpg" />
             </div>
             <div class="swiper-slide">
-              <img src="./assets/images/img2.jpg" />
+              <img src="./assets/images/swiper/img2.jpg" />
             </div>
             <div class="swiper-slide">
-              <img src="./assets/images/img3.jpg" />
+              <img src="./assets/images/swiper/img3.jpg" />
             </div>
           </div>
         </div>
@@ -176,7 +176,11 @@
         <div class="audio-container">
           <div class="audio-player">
             <button id="playBtn" type="button" aria-label="Reproduzir áudio">
-              <img id="playIcon" src="./assets/images/play.svg" alt="Play" />
+              <img
+                id="playIcon"
+                src="./assets/images/audio/play.svg"
+                alt="Play"
+              />
             </button>
 
             <div class="progress-container" aria-label="Progresso do áudio">
@@ -194,7 +198,7 @@
               >
                 <img
                   id="volumeIcon"
-                  src="./assets/images/volume.svg"
+                  src="./assets/images/audio/volume.svg"
                   alt="Volume"
                 />
               </button>
@@ -208,7 +212,10 @@
                 type="button"
                 aria-label="Configurações"
               >
-                <img src="./assets/images/settings.svg" alt="Configurações" />
+                <img
+                  src="./assets/images/audio/settings.svg"
+                  alt="Configurações"
+                />
               </button>
             </div>
 
@@ -226,7 +233,7 @@
       <section class="atividade-discursiva">
         <div class="atividade-header">
           <img
-            src="./assets/images/atividade-disc.png"
+            src="./assets/images/atividades/atividade-disc.png"
             alt=""
             class="img-atividade-discursiva"
           />
@@ -275,12 +282,274 @@
               </p>
             </div>
 
-            <button type="button" class="feedback-close" id="fecharFeedback">
+            <button
+              type="button"
+              class="feedback-close"
+              id="fecharFeedbackDiscursiva"
+            >
               ×
             </button>
           </div>
         </div>
       </section>
+
+      <section class="atividade-objetiva">
+        <div class="atividade-header">
+          <img
+            src="./assets/images/atividades/atividade-obj.png"
+            alt=""
+            class="img-atividade-objetiva"
+          />
+
+          <div class="atividade-header-text">
+            <h2>Atividade objetiva</h2>
+            <p class="subtitle">
+              It is a long established fact that a reader will be distracted by
+              the readable content of a page when looking at its layout.
+            </p>
+          </div>
+        </div>
+
+        <div class="atividade-objetiva-body">
+          <div class="opcoes-objetiva">
+            <label class="opcao-objetiva" for="atividade-objetiva-1">
+              <input
+                type="checkbox"
+                name="atividade-objetiva"
+                id="atividade-objetiva-1"
+                value="A"
+              />
+              <span
+                >A) Lorem Ipsum is simply dummy text of the printing and
+                typesetting industry.</span
+              >
+            </label>
+
+            <label class="opcao-objetiva" for="atividade-objetiva-2">
+              <input
+                type="checkbox"
+                name="atividade-objetiva"
+                id="atividade-objetiva-2"
+                value="B"
+              />
+              <span
+                >B) Lorem Ipsum is simply dummy text of the printing and
+                typesetting industry.</span
+              >
+            </label>
+
+            <label class="opcao-objetiva" for="atividade-objetiva-3">
+              <input
+                type="checkbox"
+                name="atividade-objetiva"
+                id="atividade-objetiva-3"
+                value="C"
+              />
+              <span
+                >C) Lorem Ipsum is simply dummy text of the printing and
+                typesetting industry.</span
+              >
+            </label>
+
+            <label class="opcao-objetiva" for="atividade-objetiva-4">
+              <input
+                type="checkbox"
+                name="atividade-objetiva"
+                id="atividade-objetiva-4"
+                value="D"
+              />
+              <span
+                >D) Lorem Ipsum is simply dummy text of the printing and
+                typesetting industry.</span
+              >
+            </label>
+          </div>
+
+          <div class="atividade-actions">
+            <button
+              type="button"
+              class="btn-objetiva btn-responder-objetiva"
+              id="btnResponderObjetiva"
+            >
+              Responder
+            </button>
+            <button
+              type="button"
+              class="btn-objetiva btn-alterar-objetiva"
+              id="btnAlterarObjetiva"
+            >
+              Alterar
+            </button>
+          </div>
+
+          <div class="feedback-objetiva" id="feedbackObjetiva">
+            <div class="feedback-objetiva-content">
+              <strong>Tente novamente!</strong>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Pariatur commodi odio maiores accusamus aspernatur consequatur
+                ipsam dignissimos magnam hic, velit est perferendis explicabo
+                aperiam ratione veritatis labore.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              class="feedback-close"
+              id="fecharFeedbackObjetiva"
+            >
+              ×
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq">
+        <div class="faq-header">
+          <h2>Perguntas frequentes</h2>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>
+              <span>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </span>
+
+              <span class="faq-arrow-wrap" aria-hidden="true">
+                <img
+                  src="./assets/images/faq/arrow-down-green.svg"
+                  alt=""
+                  class="faq-arrow faq-arrow-green"
+                />
+                <img
+                  src="./assets/images/faq/arrow-up-white.svg"
+                  alt=""
+                  class="faq-arrow faq-arrow-white"
+                />
+              </span>
+            </summary>
+
+            <div class="faq-content-wrapper">
+              <div class="faq-content">
+                It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout.
+                The point of using Lorem Ipsum is that it has a more-or-less
+                normal distribution of letters, as opposed to using 'Content
+                here, content here', making it look like readable English.
+              </div>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </span>
+
+              <span class="faq-arrow-wrap" aria-hidden="true">
+                <img
+                  src="./assets/images/faq/arrow-down-green.svg"
+                  alt=""
+                  class="faq-arrow faq-arrow-green"
+                />
+                <img
+                  src="./assets/images/faq/arrow-up-white.svg"
+                  alt=""
+                  class="faq-arrow faq-arrow-white"
+                />
+              </span>
+            </summary>
+
+            <div class="faq-content-wrapper">
+              <div class="faq-content">
+                It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout.
+                The point of using Lorem Ipsum is that it has a more-or-less
+                normal distribution of letters, as opposed to using 'Content
+                here, content here', making it look like readable English.
+              </div>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </span>
+
+              <span class="faq-arrow-wrap" aria-hidden="true">
+                <img
+                  src="./assets/images/faq/arrow-down-green.svg"
+                  alt=""
+                  class="faq-arrow faq-arrow-green"
+                />
+                <img
+                  src="./assets/images/faq/arrow-up-white.svg"
+                  alt=""
+                  class="faq-arrow faq-arrow-white"
+                />
+              </span>
+            </summary>
+
+            <div class="faq-content-wrapper">
+              <div class="faq-content">
+                It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout.
+                The point of using Lorem Ipsum is that it has a more-or-less
+                normal distribution of letters, as opposed to using 'Content
+                here, content here', making it look like readable English.
+              </div>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </span>
+
+              <span class="faq-arrow-wrap" aria-hidden="true">
+                <img
+                  src="./assets/images/faq/arrow-down-green.svg"
+                  alt=""
+                  class="faq-arrow faq-arrow-green"
+                />
+                <img
+                  src="./assets/images/faq/arrow-up-white.svg"
+                  alt=""
+                  class="faq-arrow faq-arrow-white"
+                />
+              </span>
+            </summary>
+
+            <div class="faq-content-wrapper">
+              <div class="faq-content">
+                It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout.
+                The point of using Lorem Ipsum is that it has a more-or-less
+                normal distribution of letters, as opposed to using 'Content
+                here, content here', making it look like readable English.
+              </div>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="footer-container">
+          <img src="./assets/images/Logo.png" alt="" />
+          <p>&copy; 2026 DOT Digital Group. Todos os direitos reservados.</p>
+        </div>
+      </footer>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
